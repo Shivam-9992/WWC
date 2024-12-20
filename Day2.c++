@@ -70,6 +70,11 @@ int main(){
 }
 
 */
+
+/*
+
+#####         Second max element of array         #####
+
 int main()
 {
     int n;
@@ -93,3 +98,7 @@ int main()
     cout << "Second Max element is: " << second_max;
     return 0;
 }
+
+*/
+
+

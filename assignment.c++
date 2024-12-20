@@ -36,11 +36,34 @@ int main()
 
 */
 
-int main(){
-    
+/*
+
+### Question 3  ###
+int main()
+{
+    int num, digit, sum = 0;
+    cout << "Enter a number: ";
+    cin >> num;
+    int temp = num;
+    for (; temp > 0;)
+    {
+        digit = temp % 10;
+        sum = sum * 10 + digit;
+        temp /= 10;
+    }
+    if (num == sum)
+    {
+        cout << "Number is Palindrome";
+    }
+    else
+    {
+        cout << "Not a Palindrome";
+    }
+
     return 0;
 }
 
+*/
 
 /*
 
@@ -48,8 +71,10 @@ int main(){
 
 int main(){
     int n;
+    cout<<"Enter size of array: ";
     cin>>n;
     int arr[n];
+    cout<<"Enter elements of array: ";
     for (int i = 0; i < n; i++)
     {
         cin >> arr[i];
@@ -65,4 +90,35 @@ int main(){
     return 0;
 }
 
+*/
+
+
+/*
+### Question 5  ###
+int main(){
+    int number,factorial=1;
+    cout<<"Enter a number: ";
+    cin>>number;
+    if (number==0)
+    {
+        cout<<"Factorial is 1";
+    }
+    else if (number==1)
+    {
+        cout<<"Factorial is 1";
+    }
+    else if (number>1)
+    {
+        for (int i = 2; i <= number; i++)
+        {
+            factorial *= i;
+        }
+        cout<<"Factorial of "<<number<<" is "<<factorial;
+    }
+    else{
+        cout<<"Enter a valid number.";
+    }
+    
+    return 0;
+}
 */
