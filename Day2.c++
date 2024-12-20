@@ -102,3 +102,46 @@ int main()
 */
 
 
+struct Node {
+    int data;
+    Node* next;
+};
+
+Node* reverseLinkedList(Node* head) {
+    Node* prev = nullptr;
+    Node* current = head;
+    Node* next = nullptr;
+
+    while (current != nullptr) {
+        next = current->next;
+        current->next = prev;
+        prev = current;
+        current = next;
+    }
+    return prev;
+}
+
+void printList(Node* head) {
+    Node* current = head;
+    while (current != nullptr) {
+        cout << current->data << " ";
+        current = current->next;
+    }
+}
+
+int main() {
+    Node* head = new Node{10, nullptr};
+    head->next = new Node{2, nullptr};
+    head->next->next = new Node{15, nullptr};
+    head->next->next->next = new Node{100, nullptr};
+
+    cout << "Original List: ";
+    printList(head);
+
+    head = reverseLinkedList(head);
+
+    cout << "\nReversed List: ";
+    printList(head);
+
+    return 0;
+}
