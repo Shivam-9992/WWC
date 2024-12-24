@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <stack>
 using namespace std;
 
 /*
@@ -125,7 +126,6 @@ int main() {
 
 */
 
-
 /*
 #####       GCD number          #####
 
@@ -151,19 +151,33 @@ int main() {
 
 */
 
-
 /*
 #####           String to integer           #####
 int main() {
     const char* str = "789abc";
     int number = atoi(str);
-    cout << "Converted int: " << number << endl; 
+    cout << "Converted int: " << number << endl;
 
     return 0;
 }
 
 */
 
-int main(){
-    
+int main()
+{
+    stack<int> myStack;
+
+    myStack.push(10);
+    myStack.push(20);
+    myStack.push(30);
+
+    cout << "Top element: " << myStack.top() << endl;
+
+    myStack.pop();
+    cout << "Top element after pop: " << myStack.top() << endl;
+
+    cout << "Size of stack: " << myStack.size() << endl;
+    cout << "Is stack empty? " << (myStack.empty() ? "Yes" : "No") << endl;
+
+    return 0;
 }
