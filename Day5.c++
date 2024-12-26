@@ -232,6 +232,8 @@ int main()
 
 */
 
+/*
+
 #include <iostream>
 using namespace std;
 
@@ -297,6 +299,48 @@ int main()
     cout << "Post-order traversal: ";
     postorder(root);
     cout << endl;
+
+    return 0;
+}
+
+*/
+
+#include <iostream>
+using namespace std;
+
+struct Node {
+    int data;
+    Node* left;
+    Node* right;
+
+    Node(int d) {
+        data = d;
+        left = nullptr;
+        right = nullptr;
+    }
+};
+
+int InternalNodes(Node* node) {
+    if (node == nullptr) {
+        return 0;
+    }
+    
+    int count = (node->left != nullptr || node->right != nullptr) ? 1 : 0;
+    
+    count += InternalNodes(node->left);
+    count += InternalNodes(node->right);
+    
+    return count;
+}
+
+int main() {
+    Node* root = new Node(1);
+    root->left = new Node(2);
+    root->right = new Node(3);
+    root->left->left = new Node(4);
+    root->left->right = new Node(5);
+
+    cout << "Number of internal nodes: " << InternalNodes(root);
 
     return 0;
 }
