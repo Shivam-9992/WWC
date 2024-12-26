@@ -1,70 +1,74 @@
-// #include <iostream>
-// using namespace std;
+/*
 
-// void merge(int arr[], int left, int mid, int right, int *temp)
-// {
-//     int i = left;
-//     int j = mid + 1;
-//     int k = left;
+#include <iostream>
+using namespace std;
 
-//     while (i <= mid && j <= right)
-//     {
-//         if (arr[i] <= arr[j])
-//         {
-//             temp[k++] = arr[i++];
-//         }
-//         else
-//         {
-//             temp[k++] = arr[j++];
-//         }
-//     }
+void merge(int arr[], int left, int mid, int right, int *temp)
+{
+    int i = left;
+    int j = mid + 1;
+    int k = left;
 
-//     while (i <= mid)
-//     {
-//         temp[k++] = arr[i++];
-//     }
+    while (i <= mid && j <= right)
+    {
+        if (arr[i] <= arr[j])
+        {
+            temp[k++] = arr[i++];
+        }
+        else
+        {
+            temp[k++] = arr[j++];
+        }
+    }
 
-//     while (j <= right)
-//     {
-//         temp[k++] = arr[j++];
-//     }
+    while (i <= mid)
+    {
+        temp[k++] = arr[i++];
+    }
 
-//     for (i = left; i <= right; i++)
-//     {
-//         arr[i] = temp[i];
-//     }
-// }
+    while (j <= right)
+    {
+        temp[k++] = arr[j++];
+    }
 
-// void mergeSort(int arr[], int left, int right, int *temp)
-// {
-//     if (left < right)
-//     {
-//         int mid = left + (right - left) / 2;
-//         mergeSort(arr, left, mid, temp);
-//         mergeSort(arr, mid + 1, right, temp);
-//         merge(arr, left, mid, right, temp);
-//     }
-// }
+    for (i = left; i <= right; i++)
+    {
+        arr[i] = temp[i];
+    }
+}
 
-// int main()
-// {
-//     int arr[] = {12, 11, 13, 5, 6, 7};
-//     int n = sizeof(arr) / sizeof(arr[0]);
+void mergeSort(int arr[], int left, int right, int *temp)
+{
+    if (left < right)
+    {
+        int mid = left + (right - left) / 2;
+        mergeSort(arr, left, mid, temp);
+        mergeSort(arr, mid + 1, right, temp);
+        merge(arr, left, mid, right, temp);
+    }
+}
 
-//     int *temp = new int[n];
+int main()
+{
+    int arr[] = {12, 11, 13, 5, 6, 7};
+    int n = sizeof(arr) / sizeof(arr[0]);
 
-//     mergeSort(arr, 0, n - 1, temp);
+    int *temp = new int[n];
 
-//     for (int i = 0; i < n; i++)
-//     {
-//         cout << arr[i] << " ";
-//     }
-//     cout << endl;
+    mergeSort(arr, 0, n - 1, temp);
 
-//     delete[] temp;
+    for (int i = 0; i < n; i++)
+    {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
 
-//     return 0;
-// }
+    delete[] temp;
+
+    return 0;
+}
+
+*/
 
 /*
 
