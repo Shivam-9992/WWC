@@ -115,6 +115,8 @@ int main()
 
 */
 
+/*
+
 #include <iostream>
 #include <algorithm>
 
@@ -153,6 +155,148 @@ int main()
     {
         cout << "Target index " << targetIndex << " is out of bounds." << endl;
     }
+
+    return 0;
+}
+
+*/
+
+/*
+
+#include <iostream>
+using namespace std;
+
+void quickSort(int arr[], int low, int high)
+{
+    if (low < high)
+    {
+        int pivot = arr[high];
+        int i = low - 1;
+
+        for (int j = low; j < high; j++)
+        {
+            if (arr[j] < pivot)
+            {
+                i++;
+                swap(arr[i], arr[j]);
+            }
+        }
+        swap(arr[i + 1], arr[high]);
+        int partitionIndex = i + 1;
+
+        quickSort(arr, low, partitionIndex - 1);
+        quickSort(arr, partitionIndex + 1, high);
+    }
+}
+
+int IndexOfElement(int arr[], int size, int target)
+{
+    for (int i = 0; i < size; i++)
+    {
+        if (arr[i] == target)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+
+int main()
+{
+    int arr[] = {4, 2, 3, 1, 5};
+    int target = 3;
+    int size = sizeof(arr) / sizeof(arr[0]);
+
+    quickSort(arr, 0, size - 1);
+
+    cout << "Sorted array: ";
+    for (int i = 0; i < size; i++)
+    {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+
+    int index = IndexOfElement(arr, size, target);
+
+    if (index != -1)
+    {
+        cout << "Element " << target << " found at index " << index << " after sorting." << endl;
+    }
+    else
+    {
+        cout << "Element " << target << " not found in the array." << endl;
+    }
+
+    return 0;
+}
+
+*/
+
+#include <iostream>
+using namespace std;
+
+struct Node
+{
+    int data;
+    Node *left;
+    Node *right;
+
+    Node(int d)
+    {
+        data = d;
+        left = nullptr;
+        right = nullptr;
+    }
+};
+
+void inorder(Node *node)
+{
+    if (node == nullptr)
+    {
+        return;
+    }
+    inorder(node->left);
+    cout << node->data << " ";
+    inorder(node->right);
+}
+void preorder(Node *node)
+{
+    if (node == nullptr)
+    {
+        return;
+    }
+    cout << node->data << " ";
+    preorder(node->left);
+    preorder(node->right);
+}
+
+void postorder(Node *node)
+{
+    if (node == nullptr)
+    {
+        return;
+    }
+    postorder(node->left);
+    postorder(node->right);
+    cout << node->data << " ";
+}
+
+int main()
+{
+    Node *root = new Node(2);
+    root->left = new Node(3);
+    root->right = new Node(4);
+    root->left->left = new Node(5);
+
+    cout << "In-order traversal: ";
+    inorder(root);
+    cout << endl;
+    cout << "Pre-order traversal: ";
+    preorder(root);
+    cout << endl;
+    cout << "Post-order traversal: ";
+    postorder(root);
+    cout << endl;
 
     return 0;
 }
