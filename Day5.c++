@@ -321,7 +321,20 @@ struct Node
         right = nullptr;
     }
 };
+int LeafNodes(Node *node)
+{
+    if (node == nullptr)
+    {
+        return 0;
+    }
 
+    if (node->left == nullptr && node->right == nullptr)
+    {
+        return 1;
+    }
+
+    return LeafNodes(node->left) + LeafNodes(node->right);
+}
 int InternalNodes(Node *node)
 {
     if (node == nullptr)
@@ -331,10 +344,7 @@ int InternalNodes(Node *node)
 
     int count = (node->left != nullptr || node->right != nullptr) ? 1 : 0;
 
-    count += InternalNodes(node->left);
-    count += InternalNodes(node->right);
-
-    return count;
+    return InternalNodes(node->left) + InternalNodes(node->right);
 }
 
 int main()
@@ -346,6 +356,7 @@ int main()
     root->left->right = new Node(5);
 
     cout << "Number of internal nodes: " << InternalNodes(root);
+    cout << "Number of leaf nodes: " << LeafNodes(root);
 
     return 0;
 }
