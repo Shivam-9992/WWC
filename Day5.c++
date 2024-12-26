@@ -308,33 +308,38 @@ int main()
 #include <iostream>
 using namespace std;
 
-struct Node {
+struct Node
+{
     int data;
-    Node* left;
-    Node* right;
+    Node *left;
+    Node *right;
 
-    Node(int d) {
+    Node(int d)
+    {
         data = d;
         left = nullptr;
         right = nullptr;
     }
 };
 
-int InternalNodes(Node* node) {
-    if (node == nullptr) {
+int InternalNodes(Node *node)
+{
+    if (node == nullptr)
+    {
         return 0;
     }
-    
+
     int count = (node->left != nullptr || node->right != nullptr) ? 1 : 0;
-    
+
     count += InternalNodes(node->left);
     count += InternalNodes(node->right);
-    
+
     return count;
 }
 
-int main() {
-    Node* root = new Node(1);
+int main()
+{
+    Node *root = new Node(1);
     root->left = new Node(2);
     root->right = new Node(3);
     root->left->left = new Node(4);
