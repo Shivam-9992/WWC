@@ -123,7 +123,7 @@ int main()
     int a, b;
     cin >> a >> b;
     cout << a << " " << b;
-    cout<<endl;
+    cout << endl;
     swap(a, b);
     cout << a << " " << b;
     return 0;
