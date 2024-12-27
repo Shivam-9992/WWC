@@ -90,8 +90,11 @@ int main()
 
 */
 
-#include <iostream>
+/*
 
+#####       Duble the array and sum them        #####
+
+#include <iostream>
 using namespace std;
 
 int main()
@@ -109,3 +112,5 @@ int main()
 
     return 0;
 }
+
+*/
